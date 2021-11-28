@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t image -f Dockerfile.dev .
+  - docker build -t hermeslapa/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run image -e CI=true USERNAME/docker-react npm run test
+  - docker run -e CI=true hermeslapa/docker-react npm run test
 
 deploy:
   - provider: elasticbeanstalk
@@ -17,6 +17,6 @@ deploy:
     bucket_name: "elasticbeanstalk-us-east-1-170450682433"
     bucket_path: "docker-react"
     on:
-      branch: master
+      branch: main
     access_key_id: "$AWS_ACCESS_KEY"
     secret_access_key: "$AWS_SECRET_KEY"
