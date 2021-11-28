@@ -6,4 +6,3 @@
           dockerfile: Dockerfile
         ports:
           - '80:80'
-
